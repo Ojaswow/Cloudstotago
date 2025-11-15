@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>Your Files</title>
+</head>
+<body>
+<div class="container">
+<h2>Your Files</h2>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Upload File</button>
+</form>
+{% if message %}<div class="message">{{ message }}</div>{% endif %}
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+
+<div class="progress-bar">
+    <div class="progress-bar-fill" style="width: {{ storage_percent }}%;">
+        {{ used_mb }}MB / 20MB
+    </div>
+</div>
+
+<div class="file-list">
+{% for f in files %}
+    <div class="file-item">
+        <span>{{ f['name'] }} ({{ "%.2f"|format(f['size']/1024/1024) }} MB)</span>
+        <div class="file-actions">
+            <a href="{{ url_for('download_file', email=session['email'], filename=f['name']) }}">Download</a>
+            <form method="POST" action="{{ url_for('delete_file', email=session['email'], filename=f['name']) }}">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+{% else %}
+    <p>No files uploaded yet.</p>
+{% endfor %}
+</div>
+
+<a href="{{ url_for('dashboard') }}"><button>Back to Dashboard</button></a>
+</div>
+</body>
+</html>

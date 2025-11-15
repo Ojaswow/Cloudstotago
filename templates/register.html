@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>Register</title>
+</head>
+<body>
+<div class="container">
+<h2>Register</h2>
+<form method="POST">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="text" name="phone" placeholder="Phone" required>
+    <input type="text" name="address" placeholder="Address" required>
+    <button type="submit">Register</button>
+</form>
+<p>Already have account? <a href="{{ url_for('login') }}">Login here</a></p>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+</div>
+</body>
+</html>

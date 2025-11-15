@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>Dashboard</title>
+</head>
+<body>
+<div class="container">
+<h2>Welcome {{ user['name'] }}</h2>
+<p>Email: {{ user['email'] }}</p>
+<p>Phone: {{ user['phone'] }}</p>
+<p>Address: {{ user['address'] }}</p>
+
+<div class="progress-bar">
+    <div class="progress-bar-fill" style="width: {{ storage_percent }}%;">
+        {{ used_mb }}MB / 20MB
+    </div>
+</div>
+
+<p>Total files: {{ files_count }}</p>
+<p>Remaining storage: {{ remaining_mb }} MB</p>
+
+<a href="{{ url_for('files_page') }}"><button>Manage Files</button></a>
+<a href="{{ url_for('logout') }}"><button style="background:#666;">Logout</button></a>
+</div>
+</body>
+</html>
