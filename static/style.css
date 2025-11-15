@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(160deg, #ffe6f2, #d0f0ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 40px;
+}
+h2 { text-align: center; margin-bottom: 20px; color: #444; }
+input, button { width: 100%; padding: 12px 15px; margin: 8px 0; border-radius: 10px; border: 1px solid #ccc; font-size: 16px; }
+button { background: #ff99cc; border: none; cursor: pointer; transition: 0.3s; }
+button:hover { background: #ff66b3; }
+a { text-decoration: none; color: #ff3399; }
+.error { color: red; margin: 10px 0; text-align: center; }
+.message { color: green; margin: 10px 0; text-align: center; }
+.progress-bar { width: 100%; background: #eee; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+.progress-bar-fill { height: 20px; background: #ff3399; width: 0%; transition: width 0.3s; text-align: center; color: #fff; line-height: 20px; font-size: 14px; }
+.file-list { margin-top: 20px; }
+.file-item { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+.file-actions form { display: inline; }
+.file-actions button, .file-actions a { margin-left: 8px; font-size: 14px; padding: 5px 10px; border-radius: 5px; border: none; cursor: pointer; }
+.file-actions button { background: #ff4d4d; color: white; }
+.file-actions a { background: #33ccff; color: white; }
